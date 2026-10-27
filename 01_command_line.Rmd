@@ -35,3 +35,124 @@ Notes on `cat`, `head`, `grep` and `man`.
 ## Sequence file formats
 
 Notes on the fasta and fastq formats.
+
+
+# Concepts
+
+*xxxx* –\> would be the name of the file/ thing that we want to look for, this is an example
+
+## Formats for storing sequence information
+
+### Fasta
+
+It is a sequence format that is often used for reference data. It doesn't have quality scores so assumed to be correct
+
+It is used for nucleotide and protein data
+
+The fasta format consists of 1 or more entries each of which consists of a header and a sequence
+
+Used for a wide variety of sequence types including whole genomes, transcriptomes, proteins. Each entry has a title line and a sequence. Multiple entries can be stored in a single file
+
+- Title. One line. Begins with \>
+
+- Sequence Identifier (name after the title)
+
+- Sequence. Under the title in another line. Can be many lines
+
+### Fastq
+
+Most commonly used for "raw" reads from next generation sequencing experiments. Includes quality scores for every base.
+
+The `fastq` format is designed for storing sequencing data along with quality scores.
+
+Like FASTA but with additional information about the reliability of each base.
+
+Mostly used to store outputs from sequencing instruments. Each entry has exactly four lines. Often millions of entries in a single file.
+
+- Line 1: Identifier Begins with \@
+
+- Sequence identifier . Name that goes after \@
+
+- Line 2: Sequence
+
+- Line 3: Description Begins with +
+
+- Line 4: Quality Scores
+
+It is a standard format used for many types of sequencing including Illumina short reads and longer reads produced by Nanopore or PacBio sequencing.
+
+Each read occupies 4 lines in a fastq file. The lines are as follows;
+
+1.  Starts with `@` and contains a unique identifier for the sequence
+
+2.  Is the sequence itself
+
+3.  Starts with `+` and almost always nothing else
+
+4.  Contains quality scores. These are encoded using ASCII characters with one character per base.
+
+The full list of quality score letters from 0-93 is
+
+```         
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+```
+
+# Working directory:
+
+## mkdir
+
+it works for creating a new working directory
+
+## pwd (print working directory)
+
+If we send the terminal this it will show us our working directory
+
+## cd (change directory)
+
+- *cd xxxx/* –\> will open a new folder/ document in the directory that we are, meaning that we will change the directory to that one
+
+  example: we will go from /home/jd163481/mb5370-workshops to /home/jd163481/mb5370-workshops/command_line if we put *cd command_line/*
+
+- *cd ..* we will go back one step in the directory
+
+  example: we will go from /home/jd163481/mb5370-workshops/command_line to /home/jd163481/mb5370-workshops if we put *cd ..*
+
+# Files:
+
+## cat
+
+command used to see files, you put *cat xxxx*
+
+## head
+
+to only see the first lines of the file we use the command head
+
+Example: we only want to see the first 2 lines
+
+*head -2 xxxx*
+
+## grep (**g**lobally search a **r**egular **e**xpression and **p**rint)
+
+finds lines matching specific strings in files
+
+- if we want to find the header –\> *grep '\^\>' xxxx*
+
+- specific text in the document (for example aminoacid sequences) –\> *grep KDRNKK xxxx*
+
+  it will show in red the sequence
+
+- if we put *-n* before the sequence it will show the line number where the match is –\> *grep -n KDRNKK xxxx*
+
+  result: *3:LTTLEVAEADVDSTLETM**KDRNKK**NSAKLSKIGNNMKSL*
+
+- ***man** grep* –\> to see all the flags (commands) of grep. his favourites:
+
+  - -i -\> case insensitive match
+
+  - -n -\> report line number of matches
+
+  - -c -\> count all files that contain the pattern
+
+  - -w -\> match whole words only
+
+# 
