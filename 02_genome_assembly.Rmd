@@ -34,3 +34,19 @@ Commands run in `quast/`.
 ## Mystery repeat region (optional)
 
 Commands run in `repeat/`.
+
+# [**NOTES**]{.underline}
+
+If we start typing and we press tab it is going to continue typing what we wanted.
+
+For example if i start typing *ass* and i press *tab* it is going to finish *assembly-stats* if that's the only option that it has.
+
+If it has more options, for example, if we start typing *assembly-stats ass* and we press *tab* but there's a bunch of things that start with *ass*, we will have to press *tab* multiple times and it will show us the options that we have:
+
+*assembly.fasta assembly_graph.gfa assembly_graph.gv assembly_info.txt*
+
+and then we can chose the one we want.
+
+If we try to type something that is not in our directory, it is not going to show anything.
+
+If we want to access something that is not in the directory but in a folder of our directory we need to type the name of the folder and / and then the name of the file that we want to access. For example: *assembly-stats amtp4/assembly.fasta*
